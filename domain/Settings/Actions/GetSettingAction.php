@@ -54,7 +54,7 @@ class GetSettingAction
     public function execute(string $featureKey, ?string $branchUuid = null): mixed
     {
         $cacheKey = $this->getCacheKey($featureKey, $branchUuid);
-        $branchTag = $branchUuid ? "branch_{$branchUuid}" : 'global';
+        $branchTag = $branchUuid !== null ? "branch_{$branchUuid}" : 'global';
 
         return Cache::tags(['settings', 'values', $branchTag])->remember(
             $cacheKey,
@@ -69,12 +69,12 @@ class GetSettingAction
     {
         $feature = SettingFeature::where('key', $featureKey)->first();
 
-        if (!$feature) {
+        if ($feature === null) {
             return null;
         }
 
         // Check for branch-specific override if branch UUID provided
-        if ($branchUuid) {
+        if ($branchUuid !== null) {
             $branchValue = $feature->values()
                 ->where('branch_uuid', $branchUuid)
                 ->first();

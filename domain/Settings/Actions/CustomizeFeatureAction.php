@@ -111,7 +111,7 @@ class CustomizeFeatureAction
 
     private function invalidateCache(string $featureKey, ?string $branchUuid): void
     {
-        $branchTag = $branchUuid ? "branch_{$branchUuid}" : 'global';
+        $branchTag = $branchUuid !== null ? "branch_{$branchUuid}" : 'global';
         Cache::tags(['settings', 'values', $branchTag])->flush();
     }
 }

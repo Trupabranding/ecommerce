@@ -63,12 +63,12 @@ class GetEffectiveSettingQuery
     {
         $feature = SettingFeature::where('key', $featureKey)->first();
 
-        if (!$feature) {
+        if ($feature === null) {
             return null;
         }
 
         // Check for branch-specific override if branch UUID provided
-        if ($branchUuid) {
+        if ($branchUuid !== null) {
             $branchValue = $this->getBranchValue($feature, $branchUuid);
             if ($branchValue !== null) {
                 return $branchValue->value;

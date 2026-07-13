@@ -39,7 +39,7 @@ declare(strict_types=1);
 
 namespace Domain\Settings\Actions;
 
-use Domain\Admin\Models\Admin;
+use Domain\Access\Admin\Models\Admin;
 use Domain\Settings\Models\SettingFeature;
 
 /**
