@@ -3,11 +3,15 @@
 declare(strict_types=1);
 //
 // /*
-// * Copyright (c) 2023 Lloric Mayuga Garcia
+// * Copyright (c) 2026 Trupa Technologies
 // * All rights reserved.
 // *
+// * Developed by Boncanca Collins
+// * GitHub: @iamtomc, @boncanca
+// * Organization: trupabranding
+// *
 // * 1. Usage Permissions
-// *    This software is licensed exclusively to Lloric Mayuga Garcia. The following restrictions apply:
+// *    This software is proprietary to Trupa Technologies. The following restrictions apply:
 // *    ✅ Allowed:
 // *
 // *     - Private use within the authorized organization.
@@ -28,9 +32,9 @@ declare(strict_types=1);
 // * 4. Legal Enforcement
 // *    Unauthorized use, distribution, or modification is strictly prohibited and may result in legal consequences.
 // *
-// * 📩 For inquiries, contact: lloricode@gmail.com
-// * 🌐 Official Website: https://github.com/lloricode
-// * 🛒 Purchase Here: https://lloricode.gumroad.com/l/laravel-filament-point-of-sale
+// * 📩 For inquiries, contact: hello@trupabranding.com
+// * 🌐 Official Website: https://trupabranding.com
+// * 📱 GitHub Organization: https://github.com/trupabranding
 // */
 //
 // declare(strict_types=1);
