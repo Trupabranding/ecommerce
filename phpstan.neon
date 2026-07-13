@@ -1,0 +1,144 @@
+includes:
+    - phpstan-baseline.neon
+    - phar://phpstan.phar/conf/bleedingEdge.neon
+
+services:
+    -
+     class: Vural\LarastanStrictRules\Rules\NoLocalQueryScopeRule
+     tags:
+         - phpstan.rules.rule
+    -
+     class: Vural\LarastanStrictRules\Rules\NoPropertyAccessorRule
+     tags:
+         - phpstan.rules.rule
+    -
+     class: Vural\LarastanStrictRules\Rules\NoValidationInControllerRule
+     tags:
+         - phpstan.rules.rule
+    -
+     class: Vural\LarastanStrictRules\Rules\NoGlobalLaravelFunctionRule
+     tags:
+         - phpstan.rules.rule
+     arguments:
+        allowedFunctions:
+        # Path
+            - app_path
+            - base_path
+            - config_path
+            - database_path
+            - lang_path
+            - public_path
+            - resource_path
+            - storage_path
+        # String
+            - class_basename
+        # Route
+            - asset
+            - route
+        # Misc
+            - abort
+            - abort_if
+            - abort_unless
+            - app
+            - blank
+            - class_uses_recursive
+            - collect
+            - csrf_field
+            - csrf_token
+            - method_field
+            - now
+            - old
+            - redirect
+            - report
+            - response
+            - tap
+            - throw_if
+            - throw_unless
+            - trait_uses_recursive
+            - view
+            # additional
+            - config
+            - fake
+            - event
+            - trans
+            - trans_choice
+            - filled
+            - url
+            - retry
+            - once
+            - action
+            - uri
+
+rules:
+    - Spatie\Ray\PHPStan\RemainingRayCallRule
+
+parameters:
+
+    # Level 9 is the highest level
+    level: 8
+
+    strictRules:
+        allRules: true
+
+    type_coverage:
+        return_type: 100
+        param_type: 99.4
+        property_type: 100
+        declare: 100
+
+    tmpDir: build/phpstan
+
+    stubFiles:
+        - phpstan-stubs/Tag.stub
+        - phpstan-stubs/filament/TextInput.stub
+
+    paths:
+        - app/
+        - database/
+        - domain/
+        - routes/
+        - support/
+
+    excludePaths:
+        - app/Support/JsonApiResourceToSchemaExtension.php
+        - app/Support/MyCustomHook.php
+        - routes/console.php
+        - database/
+        - domain/*/config/*
+        - support/*/config/*
+        - domain/*/Database/*
+        - support/*/Database/*
+
+    ignoreErrors:
+        - identifier: missingType.iterableValue
+        - identifier: missingType.generics
+        - identifier: generics.lessTypes
+        - identifier: staticMethod.dynamicCall # phpstan strictRules
+
+    earlyTerminatingFunctionCalls:
+        - rd
+        - dd
+
+    # larastan
+
+    checkModelAppends: true # https://github.com/larastan/larastan/blob/2.x/docs/rules.md#modelappendsrule
+
+    noModelMake: true
+    noUnnecessaryCollectionCall: true
+    checkModelProperties: true # beta v2.6.4 https://github.com/nunomaduro/larastan/blob/v2.6.4/docs/rules.md#modelpropertyrule
+    checkOctaneCompatibility: true
+    # relationExistenceRule: true
+    # checkDispatchArgumentTypesCompatibleWithClassConstructorRule
+
+    databaseMigrationsPath:
+        - database/settings
+
+    noEnvCallsOutsideOfConfig: true
+
+    # end larastan
+
+#    parallel:
+#            maximumNumberOfProcesses: 6
+
+    errorFormat: ticketswap
+    editorUrl: 'phpstorm://open?file=%%file%%&line=%%line%%'

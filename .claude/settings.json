@@ -1,0 +1,12 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(grep -E \"\\\\.php$\")",
+      "mcp__filament-examples__search-examples",
+      "Bash(composer analyse *)",
+      "Bash(sed -i '' 's|namespace App\\\\\\\\Filament\\\\\\\\Admin\\\\\\\\Resources\\\\\\\\SettingsResource\\\\\\\\Pages|namespace App\\\\\\\\Filament\\\\\\\\Admin\\\\\\\\Clusters\\\\\\\\Settings\\\\\\\\SettingsResource\\\\\\\\Pages|g' /Users/tomc/Herd/ecom/app/Filament/Admin/Clusters/Settings/SettingsResource/Pages/*.php)",
+      "Bash(sed -i '' 's|use App\\\\\\\\Filament\\\\\\\\Admin\\\\\\\\Resources\\\\\\\\SettingsResource|use App\\\\\\\\Filament\\\\\\\\Admin\\\\\\\\Clusters\\\\\\\\Settings\\\\\\\\SettingsResource|g' /Users/tomc/Herd/ecom/app/Filament/Admin/Clusters/Settings/SettingsResource/Pages/*.php)",
+      "Bash(xargs -I {} basename {})"
+    ]
+  }
+}

@@ -1,0 +1,6 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="ArchitectureTest.php" type="PestRunConfigurationType">
+    <PestRunner file="$PROJECT_DIR$/tests/Feature/ArchitectureTest.php" method="" scope="File" />
+    <method v="2" />
+  </configuration>
+</component>

@@ -1,0 +1,65 @@
+<?php
+
+declare(strict_types=1);
+
+return [
+
+    'defaults' => [
+        'guard' => 'admin',
+    ],
+
+    /**
+     * You can add as many guards as you want with as many role names as you want,
+     * as long as super admin and admin are required.
+     *
+     * role_names.*.super_admin is required
+     * role_names.*.admin is required
+     */
+    'role_names' => [
+
+        // keyed by guard name
+        'admin' => array_filter([
+
+            // required this cannot rename or delete or modify permissions
+            /**
+             * no permission attached to this role, but it always skips gate checks
+             * see https://freek.dev/1325-when-to-use-gateafter-in-laravel
+             */
+            'super_admin' => 'super_admin',
+
+            /**
+             * all permissions attached to this role
+             */
+            'admin' => 'admin',
+
+            //  as many as you want, below it can edit permissions but cannot rename or delete role names
+            // sample 'user' => 'user',
+
+            'branch' => config()->boolean('app-default.branch_feature_enabled') ? 'branch' : null,
+        ]),
+    ],
+
+    /**
+     *
+     */
+    'custom_permission_names' => [
+        'admin' => [
+            'viewLogViewer' => 'viewLogViewer',
+            'downloadBackup' => 'downloadBackup',
+            'deleteBackup' => 'deleteBackup',
+        ]
+    ],
+
+    'custom_permission_names_gives_to_admin' => false,
+
+    'seeders' => [
+        'roles' => \Database\Seeders\Auth\RoleSeeder::class,
+        'permissions' => \Lloricode\FilamentSpatieLaravelPermissionPlugin\Database\Seeders\DefaultPermissionSeeder::class,
+    ],
+
+    'model_policies' => [
+        'role' => Lloricode\FilamentSpatieLaravelPermissionPlugin\Policies\RolePolicy::class,
+    ],
+
+    'translated' => true,
+];

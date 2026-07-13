@@ -1,0 +1,25 @@
+parameters:
+	ignoreErrors:
+		-
+			rawMessage: 'Method Domain\Access\Admin\Models\Admin::branchNotifications() should return Illuminate\Database\Eloquent\Relations\BelongsToMany<Domain\Shop\Branch\Models\Branch, $this(Domain\Access\Admin\Models\Admin), Illuminate\Database\Eloquent\Relations\Pivot, ''pivot''> but returns Illuminate\Database\Eloquent\Relations\BelongsToMany<Domain\Shop\Branch\Models\Branch, $this(Domain\Access\Admin\Models\Admin), Domain\Shop\Models\Pivot\AdminBranchOrderNotificationsPivot, ''pivot''>.'
+			identifier: return.type
+			count: 1
+			path: domain/Access/Admin/Models/Admin.php
+
+		-
+			rawMessage: 'Method Domain\Shop\Branch\Models\Branch::adminNotifications() should return Illuminate\Database\Eloquent\Relations\BelongsToMany<Domain\Access\Admin\Models\Admin, $this(Domain\Shop\Branch\Models\Branch), Illuminate\Database\Eloquent\Relations\Pivot, ''pivot''> but returns Illuminate\Database\Eloquent\Relations\BelongsToMany<Domain\Access\Admin\Models\Admin, $this(Domain\Shop\Branch\Models\Branch), Domain\Shop\Models\Pivot\AdminBranchOrderNotificationsPivot, ''pivot''>.'
+			identifier: return.type
+			count: 1
+			path: domain/Shop/Branch/Models/Branch.php
+
+		-
+			rawMessage: 'Method Domain\Shop\Branch\Models\Branch::operationHoursInStore() should return Illuminate\Database\Eloquent\Relations\HasMany<Domain\Shop\OperationHour\Models\OperationHour> but returns Illuminate\Database\Eloquent\Relations\HasMany<Domain\Shop\OperationHour\Models\OperationHour, $this(Domain\Shop\Branch\Models\Branch)>.'
+			identifier: return.type
+			count: 1
+			path: domain/Shop/Branch/Models/Branch.php
+
+		-
+			rawMessage: 'Method Domain\Shop\Branch\Models\Branch::operationHoursOnline() should return Illuminate\Database\Eloquent\Relations\HasMany<Domain\Shop\OperationHour\Models\OperationHour> but returns Illuminate\Database\Eloquent\Relations\HasMany<Domain\Shop\OperationHour\Models\OperationHour, $this(Domain\Shop\Branch\Models\Branch)>.'
+			identifier: return.type
+			count: 1
+			path: domain/Shop/Branch/Models/Branch.php

@@ -1,0 +1,29 @@
+name: Format Dry Run (Pint)
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - '**.php'
+      - 'pint.json'
+      - 'composer.lock'
+  pull_request:
+    paths:
+      - '**.php'
+      - 'pint.json'
+      - 'composer.lock'
+
+jobs:
+  format:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v6
+
+      - name: Run pint
+        uses: aglipanci/laravel-pint-action@2.6
+        with:
+          testMode: true
+          useComposer: true
+          parallel: true

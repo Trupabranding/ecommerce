@@ -1,0 +1,23 @@
+{
+  "owner_name": "Acme Owner",
+  "owner_email": "owner@acme.test",
+  "owner_password_hash": "$2y$10$30Em8lVElUcSk/CKIbqsqO6SFLVXOsUsYbwG4J3BiXMoPoYH8EXJS",
+  "site_name": "Acme Store",
+  "legal_name": "Acme Trading LLC",
+  "support_email": "support@acme.test",
+  "support_phone": "+63 900 000 0000",
+  "website_url": "https://acme.test",
+  "address": "Acme HQ, Manila, PH",
+  "tax_number": "TIN-123456789",
+  "registration_number": "REG-ACME-001",
+  "invoice_footer": "Thank you for your business.",
+  "timezone": "Asia/Manila",
+  "locale": "en_US",
+  "currency": "PHP",
+  "order_prefix": "ACME",
+  "auto_cancel_unpaid_minutes": 30,
+  "daily_order_limit": 0,
+  "allow_guest_checkout": 1,
+  "allowed_payment_methods": ["cash", "g_cash"],
+  "default_payment_method": "cash"
+}
