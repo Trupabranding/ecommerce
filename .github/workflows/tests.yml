@@ -33,7 +33,7 @@ jobs:
           redis-version: 7
 
       - name: Install composer dependencies
-        uses: ramsey/composer-install@v3
+        uses: ramsey/composer-install@v4
         with:
           require-lock-file: true
 
