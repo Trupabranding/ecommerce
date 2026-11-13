@@ -161,6 +161,14 @@ class AdminPanelProvider extends PanelProvider
                     ->sort(3)
                     ->visible(fn () => filament_admin()->can('viewHorizon')),
             ])
+            ->colors([
+                'primary' => Color::Zinc,
+                'danger' => Color::Red,
+                'gray' => Color::Slate,
+                'info' => Color::Blue,
+                'success' => Color::Green,
+                'warning' => Color::Amber,
+            ])
             ->plugins([
                 FilamentSpatieLaravelHealthPlugin::make()
                     ->navigationGroup(fn () => trans('System'))
@@ -228,12 +236,12 @@ class AdminPanelProvider extends PanelProvider
                 PanelsRenderHook::PAGE_END,
                 fn () => new HtmlString('
                         <p>
-                            Powered by
+                            © 2026
                             <a
-                                href="https://github.com/lloricode"
+                                href="https://trupabranding.com"
                                 target="_blank"
                             >
-                                lloricode
+                                Trupa Technologies
                             </a>
                         </p>
                     '),

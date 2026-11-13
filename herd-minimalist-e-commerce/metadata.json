@@ -1,0 +1,6 @@
+{
+  "name": "Herd Minimalist E-Commerce",
+  "description": "A highly polished, minimalist and high-contrast editorial e-commerce storefront styled after the Herd brand, built using Vue 3 and Tailwind CSS.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

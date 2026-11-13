@@ -88,8 +88,8 @@ class DatabaseSeeder extends Seeder
         $primarySeeders = [
             ...$primarySeeders,
             BrandSeeder::class,
-            CategorySeeder::class,
             ProductSeeder::class,
+            EcommerceStorefrontSeeder::class,
         ];
 
         $this->call($primarySeeders);

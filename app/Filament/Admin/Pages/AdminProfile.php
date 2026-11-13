@@ -37,24 +37,38 @@
 
 declare(strict_types=1);
 
-namespace Database\Seeders;
+namespace App\Filament\Admin\Pages;
 
-use Domain\Shop\Category\Models\Category;
-use Illuminate\Database\Seeder;
+use Domain\Access\Admin\Models\Admin;
+use Filament\Pages\Page;
+use Filament\Support\Icons\Heroicon;
+use Filament\Actions\Action;
 
-class CategorySeeder extends Seeder
+class AdminProfile extends Page
 {
-    public function run(): void
+    protected static ?string $title = 'Admin Profile';
+
+    protected static ?int $navigationSort = 999;
+
+    protected static bool $shouldRegisterNavigation = false;
+
+    protected string $view = 'filament.admin.pages.admin-profile';
+
+    public ?Admin $admin = null;
+
+    public function mount(): void
     {
-        Category::factory(['name' => 'Technology'])
-            ->isVisibleStatus()
-            ->has(
-                Category::factory(['name' => 'Mobile'])
-                    ->isVisibleStatus()
-                    ->hasRandomMedia(),
-                'children'
-            )
-            ->hasRandomMedia()
-            ->createOne();
+        $this->admin = auth('admin')->user();
+    }
+
+    protected function getHeaderActions(): array
+    {
+        return [
+            Action::make('edit')
+                ->label('Edit Profile')
+                ->icon(Heroicon::OutlinedPencil)
+                ->url(fn () => route('filament.admin.auth.edit-profile'))
+                ->openUrlInNewTab(false),
+        ];
     }
 }

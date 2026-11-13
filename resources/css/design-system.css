@@ -1,0 +1,22 @@
+/* Design System - Color and Typography Tokens */
+
+:root {
+  --font-serif: "Cormorant Garamond", Georgia, serif;
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, monospace;
+
+  --color-brand-cream: #FBFBFA;
+  --color-brand-dark: #111111;
+  --color-brand-muted: #767676;
+}
+
+@layer components {
+  .headline {
+    @apply font-serif font-bold italic text-brand-dark;
+  }
+
+  .body-text {
+    @apply font-sans font-normal text-brand-dark;
+  }
+}
+
